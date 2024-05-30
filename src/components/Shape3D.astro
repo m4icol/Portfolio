@@ -33,14 +33,17 @@
     // SPHERES
 
     const geometry = new THREE.TorusGeometry(9, 3, 30, 100);
-
     const wireframe = new THREE.WireframeGeometry(geometry);
-    const material = new THREE.LineBasicMaterial({ color: 0xcccccc });
+    const material = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true });
+
+    if (window.innerWidth <= 768) { 
+        material.opacity = 0.05;
+    } else {
+        material.opacity = 0.025; 
+    }
 
     const line = new THREE.LineSegments(wireframe, material);
     line.material.depthTest = false;
-    line.material.opacity = 0.04;
-    line.material.transparent = true;
     line.rotation.x += 1.80;
 
     scene.add(line);

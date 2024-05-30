@@ -1,26 +1,31 @@
 ---
 const navItems = [
     {
+        id: "itemNavHome",
         title: "Home",
         label: "Home-navigation",
         url: "/#home",
     },
     {
+        id: "itemNavProjects",
         title: "Projects",
         label: "Projects-navigation",
         url: "/#projects",
     },
     {
+        id: "itemNavAboutMe",
         title: "About me",
         label: "About-me-navigation",
         url: "/#about-me",
     },
     {
+        id: "itemNavContact",
         title: "Contact",
         label: "contact",
         url: "mailto:m4icol.r12@gmail.com",
     },
 ];
+
 ---
 
 <ul
@@ -32,7 +37,7 @@ const navItems = [
 >
     {
         navItems.map((item) => (
-            <a aria-label={item.label} href={item.url}>
+            <a aria-label={item.label} href={item.url} id="itemNav">
                 {item.title}
             </a>
         ))

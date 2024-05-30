@@ -38,20 +38,35 @@ import OptionsNav from "../components/OptionsNav.astro";
 </header>
 
 <script>
-    let iconMenu = document.getElementById("iconMenu");
-    let iconMenuClose = document.getElementById("iconMenuClose");
-    let nav = document.getElementById("nav");
+    const iconMenu = document.getElementById("iconMenu") as HTMLElement;
+    const iconMenuClose = document.getElementById("iconMenuClose") as HTMLElement;
+    const nav = document.getElementById("nav") as HTMLElement;
 
-    iconMenu.onclick = () => {
-        nav.classList.remove("hidden");
-        nav.classList.add("flex");
-        iconMenu.classList.add("hidden");
-        iconMenuClose.classList.remove("hidden");
-    };
-
-    iconMenuClose.onclick = () => {
+    const closeMenu = () => {
         nav.classList.add("hidden");
+        nav.classList.remove("flex");
         iconMenu.classList.remove("hidden");
         iconMenuClose.classList.add("hidden");
     };
+
+    if (iconMenu) {
+        iconMenu.onclick = () => {
+            nav.classList.remove("hidden");
+            nav.classList.add("flex");
+            iconMenu.classList.add("hidden");
+            iconMenuClose.classList.remove("hidden");
+        };
+    }
+
+    if (iconMenuClose) {
+        iconMenuClose.onclick = closeMenu;
+    }
+
+    const navItems = document.querySelectorAll('#nav a');
+    navItems.forEach(item => {
+        (item as HTMLElement).onclick = closeMenu;
+    });
 </script>
+
+
+

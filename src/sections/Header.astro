@@ -1,0 +1,57 @@
+---
+import Icon from "../components/icons/Icon.astro";
+import MenuCloseIcon from "../components/icons/MenuCloseIcon.astro";
+import MenuIcon from "../components/icons/MenuIcon.astro";
+import Navigation from "../components/Navigation.astro";
+import OptionsNav from "../components/OptionsNav.astro";
+---
+
+<header class="fixed w-screen z-20">
+    <div
+        class="
+            flex flex-row justify-around items-center py-5
+            bg-CS-Dark-Header border-b border-CS-Dark-Secondary"
+    >
+        <div class="flex flex-row items-center gap-5">
+            <Icon />
+            <h2 class="font-semibold text-lg text-CS-Dark-Font">M. Portfolio</h2>
+        </div>
+
+        <Navigation class="hidden md:flex md:flex-row md:rounded-full md:border md:border-CS-Dark-Border md:gap-10 md:py-2 md:px-10 md:text-xs" />
+        <OptionsNav class=" hidden md:flex md:flex-row md:items-center md:gap-7"/>
+
+        <div class="w-8 h-8 flex items-center md:hidden">
+            <MenuCloseIcon id="iconMenuClose" class="hidden w-full h-full" />
+            <MenuIcon id="iconMenu" class="w-full h-full" />
+        </div>
+    </div>
+
+    <!-- Mobile -->
+
+    <nav id="nav" class="bg-CS-Dark-Background h-screen hidden pt-16  items-center flex-col gap-14">
+
+        <Navigation />
+        <div class="bg-CS-Dark-Font w-5/12 h-0.5 rounded-full"></div>
+        <OptionsNav />
+
+    </nav>
+</header>
+
+<script>
+    let iconMenu = document.getElementById("iconMenu");
+    let iconMenuClose = document.getElementById("iconMenuClose");
+    let nav = document.getElementById("nav");
+
+    iconMenu.onclick = () => {
+        nav.classList.remove("hidden");
+        nav.classList.add("flex");
+        iconMenu.classList.add("hidden");
+        iconMenuClose.classList.remove("hidden");
+    };
+
+    iconMenuClose.onclick = () => {
+        nav.classList.add("hidden");
+        iconMenu.classList.remove("hidden");
+        iconMenuClose.classList.add("hidden");
+    };
+</script>

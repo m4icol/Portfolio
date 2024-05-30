@@ -1,0 +1,82 @@
+---
+
+---
+
+<canvas {...Astro.props} id="canvas" class="canvas"></canvas>
+
+<script>
+    import * as THREE from "three";
+    import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+    // CONSTS
+
+    const canvas = document.getElementById("canvas");
+
+    const wScreen = canvas.clientWidth;
+    const hScreen = canvas.clientHeight;
+
+    const renderer = new THREE.WebGLRenderer({
+        canvas,
+        antialias: true,
+        alpha: true,
+    });
+    renderer.setSize(wScreen, hScreen);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    document.body.appendChild(renderer.domElement);
+
+    const camera = new THREE.PerspectiveCamera(
+        60,
+        wScreen / hScreen,
+        0.01,
+        1000,
+    );
+    camera.position.z = 10;
+
+    const scene = new THREE.Scene();
+
+    // SPHERES
+
+    const geometry = new THREE.TorusGeometry(9, 3, 30, 100);
+
+    const wireframe = new THREE.WireframeGeometry(geometry);
+
+    const line = new THREE.LineSegments(wireframe);
+    line.material.depthTest = false;
+    line.material.opacity = 0.020;
+    line.material.transparent = true;
+    line.rotation.x += 1.80;
+
+    scene.add(line);
+
+    // LIGHT
+
+    const light = new THREE.HemisphereLight(0xd90368, 0x64a6bd, 2);
+    scene.add(light);
+
+    // CONTROLS
+
+    const controls = new OrbitControls(camera, canvas);
+    controls.enableDamping = true;
+    controls.enablePan = false;
+    controls.enableZoom = false;
+    controls.enableRotate = false;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 0.2;
+
+    // RESIZE
+
+    window.addEventListener("resize", () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // RENDER
+
+    function render() {
+        controls.update();
+        requestAnimationFrame(render);
+        renderer.render(scene, camera);
+    }
+    render();
+</script>

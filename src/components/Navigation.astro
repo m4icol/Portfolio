@@ -1,0 +1,40 @@
+---
+const navItems = [
+    {
+        title: "Home",
+        label: "Home-navigation",
+        url: "/#home",
+    },
+    {
+        title: "Projects",
+        label: "Projects-navigation",
+        url: "/#projects",
+    },
+    {
+        title: "About me",
+        label: "About-me-navigation",
+        url: "/#about-me",
+    },
+    {
+        title: "Contact",
+        label: "contact",
+        url: "mailto:m4icol.r12@gmail.com",
+    },
+];
+---
+
+<ul
+    {...Astro.props}
+    class="
+        flex flex-col items-center gap-10 
+        font-medium text-sm text-CS-Dark-Font
+        "
+>
+    {
+        navItems.map((item) => (
+            <a aria-label={item.label} href={item.url}>
+                {item.title}
+            </a>
+        ))
+    }
+</ul>

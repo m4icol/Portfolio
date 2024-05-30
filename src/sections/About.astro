@@ -1,0 +1,51 @@
+---
+import Github from "../components/icons/Github.astro"
+import LinkdIn from "../components/icons/LinkedIn.astro"
+import Heart from "../components/icons/CodeIcon.astro"
+---
+
+<section id="about-me" class="h-screen w-screen flex flex-col items-center justify-center gap-10">
+
+    <div class="flex flex-col gap-3 items-center justify-center">
+        <h2 class="font-semibold text-4xl">ABOUT ME</h2>
+        <Heart></Heart>
+    </div>
+
+    <p class="w-2/4 text-center text-pretty">
+        Hi! I'm Maickol Rivera and I began creating web pages for fun at the age of 15, 
+        never imagining it would become one of my greatest passions. Over time, 
+        I have expanded my skills, exploring JavaScript, Astro, and React.
+
+        <br><br>
+
+        Additionally, I learned to develop applications with Flutter for a school project. 
+        In this setting, I also acquired skills in programming with C++ and Java.
+    </p>
+
+    <div class="flex flex-row gap-3">
+        <a 
+            href="https://github.com/m4icol" 
+            class="
+                transform hover:scale-105 transition-transform duration-300 
+                flex flex-row px-3 py-1 pr-5 rounded-full items-center gap-2
+                text-sm font-semibold border border-CS-Dark-Border" 
+            target="_blank">
+
+            <Github></Github>
+            GitHub
+        </a>
+
+        <a 
+            href="https://www.linkedin.com/in/maickol-rivera/" 
+            class="
+                transform hover:scale-105 transition-transform duration-300 
+                flex flex-row px-3 py-1 pr-5 rounded-full items-center gap-2
+                text-sm font-semibold border border-CS-Dark-Border" 
+            target="_blank">
+
+            <LinkdIn></LinkdIn>
+            LinkedIn
+        </a>
+
+    </div>
+</section>

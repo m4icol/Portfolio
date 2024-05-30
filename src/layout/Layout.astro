@@ -1,0 +1,42 @@
+---
+import "@fontsource/poppins/300.css";
+import "@fontsource/poppins/600.css";
+
+interface Props {
+    title: string;
+    description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <meta name="description" content={description} />
+        <title>{title}</title>
+    </head>
+
+    <body class="bg-CS-Dark-Background">
+        <slot />
+
+        <style is:global>
+            :root {
+                --color-background: var(--theme-CS-Background);
+                --color-text: var(--theme-CS-Text);
+            }
+
+            * {
+                font-family: "Poppins", sans-serif;
+                color: #fff;
+                scroll-behavior: smooth;
+            }
+            body {
+                overflow-x: hidden;
+            }
+        </style>
+    </body>
+</html>

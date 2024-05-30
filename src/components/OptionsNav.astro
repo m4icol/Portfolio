@@ -1,0 +1,40 @@
+---
+import MoonIcon from "./icons/MoonIcon.astro";
+import SunIcon from "./icons/SunIcon.astro";
+import Github from "./icons/Github.astro";
+---
+
+    <ul {...Astro.props} class="flex flex-col items-center gap-9">
+
+        <li class="font-bold text-center cursor-pointer ">
+            <p class="text-CS-Dark-Font">ENG</p>
+            <p class="hidden text-CS-Dark-Font">ES</p>
+        </li>
+    
+        <li class="cursor-pointer">
+            <MoonIcon className="moonIcon w-7 h-7 md:w-6 md:h-6" />
+            <SunIcon className="sunIcon w-7 h-7 hidden md:w-6 md:h-6" />
+        </li>
+    
+        <li>
+            <a href="https://github.com/m4icol" target="_blank" aria-label="GitHub Maickol Rivera">
+                <Github class="w-7 h-7 md:w-6 md:h-6" />
+            </a>
+        </li>
+
+    </ul>
+    
+<script>
+    let moonIcon = document.querySelector(".moonIcon");
+    let sunIcon = document.querySelector(".sunIcon");
+
+    moonIcon.addEventListener('click', () => {
+        moonIcon.classList.add("hidden");
+        sunIcon.classList.remove("hidden");
+    })
+
+    sunIcon.addEventListener('click', () => {
+        moonIcon.classList.remove("hidden");
+        sunIcon.classList.add("hidden");
+    })
+</script>

@@ -3,8 +3,8 @@ import { Image } from "astro:assets";
 import Sphere from "../components/Shape3D.astro";
 ---
 
-<section id="home" class="w-screen h-screen relative flex items-center justify-center">
-    <Sphere class="bg-CS-Dark-Background h-full w-screen absolute inset-0 -z-10 shadow-lg shadow-neutral-950" />
+<section id="home" class="w-screen h-screen relative flex items-center justify-center dark:text-CS-Dark-Font text-CS-Light-Font">
+    <Sphere class="dark:bg-CS-Dark-Background h-full w-screen absolute inset-0 -z-10 shadow-md shadow-neutral-700" />
 
     <div class="flex flex-col items-center text-center gap-8 md:gap-6 pb-36 md:pb-10">
 
@@ -18,10 +18,10 @@ import Sphere from "../components/Shape3D.astro";
 
         <div class="flex flex-col items-center gap-3 md:gap-2">
 
-            <h1 class="text-2xl w-64 leading-7 font-bold text-CS-Dark-Font">
+            <h1 class="text-2xl w-64 leading-7 font-bold">
                 Welcome, I'm Maickol Rivera
             </h1>
-            <p class="text-sm w-64 leading-5 font-normal md:text-sm text-CS-Dark-Font">
+            <p class="text-sm w-64 leading-5 font-normal md:text-sm">
                 Web Developer and UI/UX Designer. It's time to build something
                 unique!
             </p>

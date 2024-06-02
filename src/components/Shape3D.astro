@@ -34,12 +34,12 @@
 
     const geometry = new THREE.TorusGeometry(9, 3, 30, 100);
     const wireframe = new THREE.WireframeGeometry(geometry);
-    const material = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true });
+    const material = new THREE.LineBasicMaterial({ color: 0x555555, transparent: true });
 
     if (window.innerWidth <= 768) { 
-        material.opacity = 0.05;
+        material.opacity = 0.08;
     } else {
-        material.opacity = 0.025; 
+        material.opacity = 0.07; 
     }
 
     const line = new THREE.LineSegments(wireframe, material);

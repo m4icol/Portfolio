@@ -4,37 +4,63 @@ import SunIcon from "./icons/SunIcon.astro";
 import Github from "./icons/Github.astro";
 ---
 
-    <ul {...Astro.props} class="flex flex-col items-center gap-9">
+<ul {...Astro.props} class="flex flex-col items-center gap-9">
 
-        <li class="font-bold text-center cursor-pointer ">
-            <p class="text-CS-Dark-Font">ENG</p>
-            <p class="hidden text-CS-Dark-Font">ES</p>
-        </li>
+    <li class="font-bold text-center cursor-pointer">
+        <p class="dark:text-CS-Dark-Font text-CS-Light-Font">ENG</p>
+        <p class="hidden dark:text-CS-Dark-Font text-CS-Light-Font">ES</p>
+    </li>
     
-        <li class="cursor-pointer">
-            <MoonIcon className="moonIcon w-7 h-7 md:w-6 md:h-6" />
-            <SunIcon className="sunIcon w-7 h-7 hidden md:w-6 md:h-6" />
-        </li>
+    <li class="cursor-pointer">
+        <MoonIcon class="moonIcon w-7 h-7 md:w-6 md:h-6" />
+        <SunIcon class="sunIcon w-7 h-7 hidden md:w-6 md:h-6" />
+    </li>
     
-        <li>
-            <a href="https://github.com/m4icol" target="_blank" aria-label="GitHub Maickol Rivera">
-                <Github class="w-7 h-7 md:w-6 md:h-6" />
-            </a>
-        </li>
+    <li>
+        <a href="https://github.com/m4icol/portfolio" target="_blank" aria-label="GitHub Maickol Rivera">
+            <Github class="w-7 h-7 md:w-6 md:h-6" />
+        </a>
+    </li>
 
-    </ul>
+</ul>
     
 <script>
-    let moonIcon = document.querySelector(".moonIcon");
-    let sunIcon = document.querySelector(".sunIcon");
+    const sunIcons = document.querySelectorAll(".sunIcon");
+    const moonIcons = document.querySelectorAll(".moonIcon");
 
-    moonIcon.addEventListener('click', () => {
-        moonIcon.classList.add("hidden");
-        sunIcon.classList.remove("hidden");
-    })
+    const userTheme = localStorage.getItem("theme");
+    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    sunIcon.addEventListener('click', () => {
-        moonIcon.classList.remove("hidden");
-        sunIcon.classList.add("hidden");
-    })
+    const iconToggle = () => {
+        moonIcons.forEach(icon => icon.classList.toggle("hidden"));
+        sunIcons.forEach(icon => icon.classList.toggle("hidden"));
+    };
+
+    const themeCheck = () => {
+        if (userTheme === "dark" || (!userTheme && systemTheme)) {
+            document.documentElement.classList.add("dark");
+            moonIcons.forEach(icon => icon.classList.add("hidden"));
+            sunIcons.forEach(icon => icon.classList.remove("hidden"));
+            return;
+        }
+        moonIcons.forEach(icon => icon.classList.remove("hidden"));
+        sunIcons.forEach(icon => icon.classList.add("hidden"));
+    }
+
+    const themeSwitch = () => {
+        if (document.documentElement.classList.contains("dark")) {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+            iconToggle();
+            return;
+        }
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+        iconToggle();
+    }
+
+    sunIcons.forEach(icon => icon.addEventListener("click", themeSwitch));
+    moonIcons.forEach(icon => icon.addEventListener("click", themeSwitch));
+
+    themeCheck();
 </script>

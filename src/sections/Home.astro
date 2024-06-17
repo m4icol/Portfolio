@@ -4,16 +4,16 @@ import Sphere from "../components/Shape3D.astro";
 ---
 
 <section id="home" class="w-screen h-screen relative flex items-center justify-center dark:text-CS-Dark-Font text-CS-Light-Font">
-    <Sphere class="dark:bg-CS-Dark-Background h-full w-screen absolute inset-0 -z-10 shadow-md shadow-neutral-700" />
+    <Sphere class="dark:bg-CS-Dark-Background h-full w-screen absolute inset-0 -z-10 shadow-sm shadow-neutral-600" />
 
     <div class="flex flex-col items-center text-center gap-8 md:gap-6 pb-36 md:pb-10">
 
         <Image
-            class="rounded-full"
+            class="rounded-full overflow-hidden"
             src="/profilePicture.webp"
             alt="Maickol Rivera"
-            width="72"
-            height="72"
+            width="80"
+            height="75"
         />
 
         <div class="flex flex-col items-center gap-3 md:gap-2">
@@ -33,6 +33,7 @@ import Sphere from "../components/Shape3D.astro";
         </div>
     </div>
 </section>
+
 
 <style>
     .scroll-indicator {

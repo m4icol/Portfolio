@@ -4,6 +4,7 @@ import Header from "../sections/Header.astro";
 import Home from "../sections/Home.astro";
 import Projects from "../sections/Projects.astro";
 import About from "../sections/About.astro";
+import Footer from "../sections/Footer.astro";
 ---
 
 <Layout
@@ -13,7 +14,11 @@ import About from "../sections/About.astro";
 >
 	<Header />
 	<Home />
-	<Projects />
-	<About/>
+
+	<div class="mt-48 flex flex-col gap-48">
+		<Projects />
+		<About/>
+		<Footer/>
+	</div>
 
 </Layout>

@@ -1,0 +1,25 @@
+---
+import Github from "../components/icons/Github.astro";
+import LinkedIn from "../components/icons/LinkedIn.astro"
+import LinkPill from "../components/LinkPill.astro"
+---
+
+<footer class="w-screen flex flex-col md:flex-row gap-8 justify-between items-center md:px-32 py-10 dark:text-CS-Dark-Font text-CS-Light-Font dark:bg-CS-Dark-Header bg-CS-Light-Header">
+    <h3 class="text-sm">Maickol Rivera | Desarrollador Web</h3>
+
+    <div class="flex flex-row gap-3">
+
+        <LinkPill href="https://github.com/m4icol">
+            <Github></Github>
+            GitHub
+        </LinkPill>
+
+        <LinkPill href="https://www.linkedin.com/in/maickol-rivera/">
+            <LinkedIn></LinkedIn>
+            LinkedIn
+        </LinkPill>
+    </div>
+
+</footer>
+
+

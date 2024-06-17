@@ -37,9 +37,9 @@
     const material = new THREE.LineBasicMaterial({ color: 0x888888, transparent: true });
 
     if (window.innerWidth <= 768) { 
-        material.opacity = 0.35;
+        material.opacity = 0.28;
     } else {
-        material.opacity = 0.1; 
+        material.opacity = 0.06; 
     }
 
     const line = new THREE.LineSegments(wireframe, material);

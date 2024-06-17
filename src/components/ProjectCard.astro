@@ -1,6 +1,7 @@
 ---
 import Github from "./icons/Github.astro"
 import Preview from "./icons/Preview.astro"
+import LinkPill from "./LinkPill.astro"
 import { Image } from "astro:assets";
 
 const cardItems = [
@@ -8,60 +9,47 @@ const cardItems = [
         image: "/mockupNewFocus.webp",
         title: "New Focus",
         description: "Application dedicated to promoting healthy and productive habits in the daily lives of its users.",
+        urlWeb: "https://newfocus.netlify.app/",
+        urlGitHub: "https://github.com/m4icol/Website_NewFocus",
     },
     {
         image: "/mockupNewFocus.webp",
         title: "New Focus",
-        description: "Application dedicated to promoting healthy and productive habits in the daily lives asdof its users.",
+        description: "Application dedicated to promoting healthy and productive habits in the daily lives of its users.",
+        urlWeb: "https://newfocus.netlify.app/",
+        urlGitHub: "https://github.com/m4icol/Website_NewFocus",
     }
 ]
 ---
-<div class="flex flex-col items-center gap-10 justify-center md:flex-row">
 
     {
         cardItems.map((item) => (
-        <div class="border-2 border-CS-Dark-Border w-80 rounded-xl overflow-hidden">
+        <div class="border-2 border-CS-Dark-Border w-3/4 md:w-80 rounded-xl overflow-hidden">
 
             <Image
                 class="w-full"
                 src={item.image}
-                alt="Maickol Rivera"
+                alt="Project preview"
                 width="72"
                 height="72"
             />
 
-            <div class="flex flex-col gap-3 p-7">
+            <div class="flex flex-col gap-5 py-6 px-6">
                 <h3 class="font-semibold text-2xl">{item.title}</h3>
-
                 <p class="text-sm">{item.description}</p>
 
                 <div class="flex flex-row gap-3">
-                    <a 
-                        href="https://github.com/m4icol/Website_NewFocus" 
-                        class="
-                            transform hover:scale-105 transition-transform duration-300 
-                            flex flex-row px-3 py-1 pr-5 rounded-full items-center gap-2
-                            text-sm font-semibold border border-CS-Dark-Border" 
-                        target="_blank">
+                    <LinkPill href={item.urlWeb}>
+                        <Preview />
+                        Preview
+                    </LinkPill>
 
+                    <LinkPill href={item.urlGitHub}>
                         <Github></Github>
                         GitHub
-                    </a>
-                    <a 
-                        href="https://newfocus.netlify.app/" 
-                        class="
-                            transform hover:scale-105 transition-transform duration-300 
-                            flex flex-row px-3 py-1 pr-5 rounded-full items-center gap-2
-                            text-sm font-semibold border border-CS-Dark-Border"
-                        target="_blank" >
-
-                        <Preview></Preview>
-                        Preview
-                    </a>
+                    </LinkPill>
                 </div>
             </div>
         </div>
         ))
     }
-
-</div>

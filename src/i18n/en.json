@@ -1,0 +1,39 @@
+{
+    "asdf": "ES",
+
+    "SEO": {
+        "TITLE": "Portfolio Maickol Rivera | Web Developer and Designer",
+        "DESCRIPTION": "Developer focused on creating unique and special applications"
+    },
+
+    "NAVIGATION": {
+        "HOME": "Home",
+        "PROJECTS": "Projects",
+        "ABOUT": "About Me",
+        "CONTACT": "Contact"
+    },
+
+    "HERO": {
+        "WELCOME": "Welcome, I'm Maickol Rivera",
+        "SLOGAN": "Web Developer and UI/UX Designer. It's time to build something unique!"
+    },
+
+    "PROJECTS": {
+        "TITLE": "PROJECTS",
+        "PREVIEW_TEXT": "Preview",
+
+        "NEWFOCUS_TITLE": "New Focus",
+        "NEWFOCUS_DESCRIPTION": "Langing Page of New Focus. Application dedicated to promoting healthy and productive habits in the daily lives of its users."
+    },
+
+    "ABOUT": {
+        "TITLE": "ABOUT ME",
+        "TEXT_1": "I'm a web developer specializing in the front-end world and creating 3D illustrations.",
+        "TEXT_2": "I started creating web pages for fun at the age of 15, never imagining it would become one of my greatest passions.",
+        "TEXT_3": "Additionally, I learned to develop applications with Flutter for a school project and also acquired skills in programming with C++ and Java."
+    },
+
+    "FOOTER": {
+        "TITLE": "Maickol Rivera | Web Developer and Designer"
+    }
+}

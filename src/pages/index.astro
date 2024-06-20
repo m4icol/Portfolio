@@ -5,12 +5,17 @@ import Home from "../sections/Home.astro";
 import Projects from "../sections/Projects.astro";
 import About from "../sections/About.astro";
 import Footer from "../sections/Footer.astro";
+
+import { getI18N } from "../i18n";
+
+const { currentLocale = "es" } = Astro;
+const i18n = getI18N({ currentLocale });
 ---
 
 <Layout
-	title="Portfolio de Maickol Rivera | Desarrollador y Diseñador Web"
+	title={i18n.SEO.TITLE}
 	,
-	description="Desarrollador enfocado en entregar aplicaciones únicas y especiales",
+	description={i18n.SEO.DESCRIPTION},
 >
 	<Header />
 	<Home />

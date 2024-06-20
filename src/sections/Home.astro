@@ -1,6 +1,11 @@
 ---
 import { Image } from "astro:assets";
 import Sphere from "../components/Shape3D.astro";
+
+import { getI18N } from "../i18n";
+
+const { currentLocale = "es" } = Astro;
+const i18n = getI18N({ currentLocale });
 ---
 
 <section id="home" class="w-screen h-screen relative flex items-center justify-center dark:text-CS-Dark-Font text-CS-Light-Font">
@@ -19,11 +24,10 @@ import Sphere from "../components/Shape3D.astro";
         <div class="flex flex-col items-center gap-3 md:gap-2">
 
             <h1 class="text-2xl w-64 leading-7 font-bold">
-                Welcome, I'm Maickol Rivera
+                {i18n.HERO.WELCOME}
             </h1>
-            <p class="text-sm w-64 leading-5 font-normal md:text-sm">
-                Web Developer and UI/UX Designer. It's time to build something
-                unique!
+            <p class="text-sm w-72 leading-5 font-normal md:text-sm">
+                {i18n.HERO.SLOGAN}
             </p>
 
         </div>

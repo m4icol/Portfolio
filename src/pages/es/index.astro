@@ -1,0 +1,31 @@
+---
+import Layout from "../../layout/Layout.astro";
+import Header from "../../sections/Header.astro";
+import Home from "../../sections/Home.astro";
+import Projects from "../../sections/Projects.astro";
+import About from "../../sections/About.astro";
+import Footer from "../../sections/Footer.astro";
+
+import { getI18N } from "../../i18n";
+
+const { currentLocale = "es" } = Astro;
+const i18n = getI18N({ currentLocale });
+
+---
+
+<Layout
+	title={i18n.SEO.TITLE}
+	,
+	description={i18n.SEO.DESCRIPTION},
+>
+
+	<Header />
+	<Home />
+
+	<div class="mt-48 flex flex-col gap-48">
+		<Projects />
+		<About/>
+		<Footer/>
+	</div>
+
+</Layout>

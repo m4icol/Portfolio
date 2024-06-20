@@ -1,0 +1,10 @@
+---
+import { getI18N } from "../i18n";
+
+const { currentLocale = "es" } = Astro;
+const i18n = getI18N({ currentLocale });
+---
+
+<li class="font-bold text-center cursor-pointer" id="langToggle">
+    <a href={i18n.LANGUAJE.URL} class="lang-switch dark:text-CS-Dark-Font text-CS-Light-Font" id="enLang" data-lang="en">{i18n.LANGUAJE.TEXT}</a>
+</li>

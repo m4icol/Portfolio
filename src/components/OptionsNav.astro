@@ -1,20 +1,14 @@
 ---
-import MoonIcon from "./icons/MoonIcon.astro";
-import SunIcon from "./icons/SunIcon.astro";
 import Github from "./icons/Github.astro";
+import ThemeSwitch from "./ThemeSwitch.astro";
+import LangSwitch  from "./LangSwitch.astro"
 ---
 
 <ul {...Astro.props} class="flex flex-col items-center gap-9">
 
-    <li class="font-bold text-center cursor-pointer">
-        <p class="dark:text-CS-Dark-Font text-CS-Light-Font">ENG</p>
-        <p class="hidden dark:text-CS-Dark-Font text-CS-Light-Font">ES</p>
-    </li>
+    <LangSwitch></LangSwitch>
     
-    <li class="cursor-pointer w-7 h-7 md:w-6 md:h-6">
-        <MoonIcon class="moonIcon " />
-        <SunIcon class="sunIcon hidden" />
-    </li>
+    <ThemeSwitch></ThemeSwitch>
     
     <li>
         <a href="https://github.com/m4icol/portfolio" target="_blank" aria-label="GitHub Maickol Rivera">
@@ -24,43 +18,3 @@ import Github from "./icons/Github.astro";
 
 </ul>
 
-<script>
-    const sunIcons = document.querySelectorAll(".sunIcon");
-    const moonIcons = document.querySelectorAll(".moonIcon");
-
-    const userTheme = localStorage.getItem("theme");
-    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-    const iconToggle = () => {
-        moonIcons.forEach(icon => icon.classList.toggle("hidden"));
-        sunIcons.forEach(icon => icon.classList.toggle("hidden"));
-    };
-
-    const themeCheck = () => {
-        if (userTheme === "dark" || (!userTheme && systemTheme)) {
-            document.documentElement.classList.add("dark");
-            moonIcons.forEach(icon => icon.classList.add("hidden"));
-            sunIcons.forEach(icon => icon.classList.remove("hidden"));
-            return;
-        }
-        moonIcons.forEach(icon => icon.classList.remove("hidden"));
-        sunIcons.forEach(icon => icon.classList.add("hidden"));
-    }
-
-    const themeSwitch = () => {
-        if (document.documentElement.classList.contains("dark")) {
-            document.documentElement.classList.remove("dark");
-            localStorage.setItem("theme", "light");
-            iconToggle();
-            return;
-        }
-        document.documentElement.classList.add("dark");
-        localStorage.setItem("theme", "dark");
-        iconToggle();
-    }
-
-    sunIcons.forEach(icon => icon.addEventListener("click", themeSwitch));
-    moonIcons.forEach(icon => icon.addEventListener("click", themeSwitch));
-
-    themeCheck();
-</script>

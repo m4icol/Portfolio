@@ -1,6 +1,4 @@
 {
-    "asdf": "EN",
-
     "SEO": {
         "TITLE": "Portfolio Maickol Rivera | Desarrollador y Diseñador Web",
         "DESCRIPTION": "Desarrollador enfocado en crear aplicaciones únicas y especiales"
@@ -11,6 +9,11 @@
         "PROJECTS": "Proyectos",
         "ABOUT": "Sobre mí",
         "CONTACT": "Contacto"
+    },
+
+    "LANGUAJE": {
+        "TEXT": "EN",
+        "URL": "/"
     },
 
     "HERO": {

@@ -1,0 +1,50 @@
+---
+import MoonIcon from "./icons/MoonIcon.astro";
+import SunIcon from "./icons/SunIcon.astro";
+---
+
+<li class="cursor-pointer w-7 h-7 md:w-6 md:h-6">
+    <MoonIcon class="moonIcon " />
+    <SunIcon class="sunIcon hidden" />
+</li>
+
+<script>
+    const sunIcons = document.querySelectorAll(".sunIcon");
+    const moonIcons = document.querySelectorAll(".moonIcon");
+
+    const userTheme = localStorage.getItem("theme");
+    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    const iconToggle = () => {
+        moonIcons.forEach(icon => icon.classList.toggle("hidden"));
+        sunIcons.forEach(icon => icon.classList.toggle("hidden"));
+    };
+
+    const themeCheck = () => {
+        if (userTheme === "dark" || (!userTheme && systemTheme)) {
+            document.documentElement.classList.add("dark");
+            moonIcons.forEach(icon => icon.classList.add("hidden"));
+            sunIcons.forEach(icon => icon.classList.remove("hidden"));
+            return;
+        }
+        moonIcons.forEach(icon => icon.classList.remove("hidden"));
+        sunIcons.forEach(icon => icon.classList.add("hidden"));
+    }
+
+    const themeSwitch = () => {
+        if (document.documentElement.classList.contains("dark")) {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+            iconToggle();
+            return;
+        }
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+        iconToggle();
+    }
+
+    sunIcons.forEach(icon => icon.addEventListener("click", themeSwitch));
+    moonIcons.forEach(icon => icon.addEventListener("click", themeSwitch));
+
+    themeCheck();
+</script>
